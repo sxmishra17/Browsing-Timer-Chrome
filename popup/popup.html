@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="header">
+      <img src="../icons/icon-48.png" alt="" class="logo">
+      <div class="header-text">
+        <h1>Browsing Timer</h1>
+        <p id="totalTime" class="total-time">0h 0m</p>
+      </div>
+      <button id="toggleBtn" class="toggle-btn" title="Turn tracking on/off">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </button>
+    </header>
+
+    <section class="sites" id="sitesList">
+      <p class="empty-msg">No browsing data for today yet.</p>
+    </section>
+
+    <footer class="footer">
+      <button id="dashboardBtn" class="btn-dashboard">View Full Dashboard</button>
+    </footer>
+  </div>
+
+  <script src="../utils/domains.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

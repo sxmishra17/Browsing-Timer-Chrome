@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browsing Timer — Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Company Logo -->
+    <div class="company-branding">
+      <img src="../icons/yuvatech_logo.png" alt="Yuvatech Logo" class="company-logo">
+    </div>
+
+    <!-- Header -->
+    <header class="dash-header">
+      <div class="dash-title">
+        <img src="../icons/icon-48.png" alt="" class="dash-logo">
+        <h1>Browsing Timer Dashboard</h1>
+      </div>
+      <div class="range-controls" id="rangeControls">
+        <div class="range-toggle" id="rangeToggle">
+          <button class="range-btn active" data-days="1">1 Day</button>
+          <button class="range-btn" data-days="7">1 Week</button>
+          <button class="range-btn" data-days="30">1 Month</button>
+          <button class="range-btn" data-days="custom">Custom</button>
+        </div>
+        <div class="custom-days-wrap" id="customDaysWrap" style="display:none">
+          <input type="number" id="customDaysInput" class="custom-days-input" min="1" max="30" value="14" placeholder="Days">
+          <button id="customDaysApply" class="custom-days-apply">Apply</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Export buttons -->
+    <div class="export-bar">
+      <button id="exportHtml" class="export-btn">Save as HTML</button>
+      <button id="exportPdf" class="export-btn">Save as PDF</button>
+    </div>
+
+    <!-- Summary cards -->
+    <section class="summary-cards" id="summaryCards">
+      <div class="card">
+        <span class="card-label">Total Time</span>
+        <span class="card-value" id="cardTotalTime">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Sites Visited</span>
+        <span class="card-value" id="cardSites">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Total Visits</span>
+        <span class="card-value" id="cardVisits">—</span>
+      </div>
+      <div class="card">
+        <span class="card-label">Fresh Visits</span>
+        <span class="card-value" id="cardFresh">—</span>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+      <div class="chart-container">
+        <h2>Daily Browsing Time</h2>
+        <div class="chart-scroll" id="dailyChartScroll">
+          <canvas id="dailyChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-container chart-line">
+        <h2>Time Per Website (Top 15)</h2>
+        <div class="chart-scroll" id="domainChartScroll">
+          <canvas id="domainChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="table-section">
+      <h2>All Websites</h2>
+      <table class="data-table" id="dataTable">
+        <thead>
+          <tr>
+            <th data-sort="domain">Domain <span class="sort-arrow"></span></th>
+            <th data-sort="timeMs">Total Time <span class="sort-arrow"></span></th>
+            <th data-sort="visits">Visits <span class="sort-arrow"></span></th>
+            <th data-sort="freshVisits">Fresh Visits <span class="sort-arrow"></span></th>
+            <th data-sort="avg">Avg Time / Visit <span class="sort-arrow"></span></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script src="../lib/chart.min.js"></script>
+  <script src="../utils/domains.js"></script>
+  <script src="../utils/storage.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
